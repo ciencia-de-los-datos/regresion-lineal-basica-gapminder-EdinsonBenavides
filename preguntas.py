@@ -89,8 +89,8 @@ def pregunta_03():
     # Cree El espacio de predicción. Esto es, use linspace para crear
     # un vector con valores entre el máximo y el mínimo de X_fertility
     prediction_space = np.linspace(
-        X_fertility.min(),
-        X_fertility.max(),
+        min(X_fertility),
+        max(X_fertility),
     ).reshape(-1, 1)
 
     # Entrene el modelo usando X_fertility y y_life
@@ -112,16 +112,19 @@ def pregunta_04():
     # Importe LinearRegression
     # Importe train_test_split
     # Importe mean_squared_error
-    from ____ import ____
+    from sklearn.linear_model import LinearRegression
+    from sklearn.model_selection import train_test_split
+    from sklearn.metrics import mean_squared_error
 
     # Lea el archivo `gm_2008_region.csv` y asignelo al DataFrame `df`
-    df = ____
+    df = pd.read_csv("gm_2008_region.csv")
 
     # Asigne a la variable los valores de la columna `fertility`
-    X_fertility = ____
+    X_fertility = df["fertility"].values.reshape(-1, 1)
+
 
     # Asigne a la variable los valores de la columna `life`
-    y_life = ____
+    y_life = df["life"].values.reshape(-1, 1)
 
     # Divida los datos de entrenamiento y prueba. La semilla del generador de números
     # aleatorios es 53. El tamaño de la muestra de entrenamiento es del 80%
